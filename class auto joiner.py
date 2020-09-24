@@ -7,9 +7,16 @@ screenWidth,screenHeight = pyautogui.size()
 now = datetime.now()
 current_time = now.strftime("%H:%M:%S")
 path=r'C:\Program Files\Google\Chrome\Application\\chrome.exe' #Enter path of your web browser here ending with \\chrome.exe
-link='https://meet.google.com/gbh-nmjn-jzb' #Link for the class(make sure you are signed in)
-classStart=input(f"Enter class start time in 24h format as hh:mm:ss (current time is {current_time})\n")
-classEnd=input(f"Enter class end time in 24h format as hh:mm:ss (current time is {current_time})\n")
+link='https://meet.google.com/jrk-npag-kkh' #Link for the class(make sure you are signed in)
+while(1):
+    classStart=input(f"Enter class start time in 24h format as hh:mm:ss (current time is {current_time})\n")
+    classEnd=input(f"Enter class end time in 24h format as hh:mm:ss (current time is {current_time})\n")
+    cS=classStart.split(":")
+    cE=classEnd.split(":")
+    if int(cS[0])>23 or int(cE[0])>23 or int(cS[1])>59 or int(cE[1])>59 or int(cS[2])>59 or int(cE[2])>59:
+        print("Invalid time")
+        continue
+    else:break
 while(1):
     now = datetime.now()
     current_time = now.strftime("%H:%M:%S")
